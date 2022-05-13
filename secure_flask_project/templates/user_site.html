@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Account</title>
+</head>
+
+<body style = "background-color: #077eb6;">
+    <h1>Twoje konto</h1>
+    <a style= "font-size: 18px;" href="/logout">Wyloguj się</a><br>
+    <a style= "font-size: 18px;" href="{{ url_for('changepass') }}">Zmień hasło do konta</a><br>
+    <a style= "font-size: 18px;" href="{{ url_for('password_manager') }}">Dodaj nowe hasło</a><br>
+    <a style= "font-size: 18px;" href="{{ url_for('passwords_display') }}">Pokaż swoje hasła</a>
+</body>
+
+</html>
+

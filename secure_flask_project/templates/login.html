@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Login</title>
+</head>
+
+<body style = "background-color: #077eb6;">
+    <h1>Wprowadź dane logowania</h1>
+     <a style= "font-size: 18px;" href="{{url_for('index') }}">Powrót na stronę główną</a><br>
+     <a style= "font-size: 18px;" href="{{url_for('register') }}">Nie masz konta? Zarejestruj się </a><br>
+     <a style= "font-size: 18px;" href="{{url_for('email_reset_password') }}">Zapomniałeś hasła?</a><br><br>
+     <form action="/login" method="POST" novalidate>
+         {{ form.csrf_token }}
+
+        <label style = "font-size: 18px" >Nazwa użytkownika</label><br>
+         {{ form.username }} <br>
+
+        <label style = "font-size: 18px" >Hasło</label><br>
+         {{ form.password }} <br>
+
+         {{ form.submit}} <br>
+
+         {% if form.username.errors %}
+            {% if not form.password.data and form.username.data %}
+                <ul class="errors">
+                    <li>{{ form.password.errors[0] }}</li>
+                </ul>
+            {% else %}
+                <ul class="errors">
+                    <li>{{ form.username.errors[0] }}</li>
+                </ul>
+            {% endif %}
+        {% endif %}
+        <br><br>
+         {% if form.password.errors %}
+            <ul class="errors">
+                {% if form.username.errors|length == 0 %}
+                    <li>{{ form.password.errors[0] }}</li>
+                {% endif %}
+            </ul>
+        {% endif %}
+
+         
+     </form>
+     <br>
+</body>
+
+</html>

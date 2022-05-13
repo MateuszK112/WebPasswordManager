@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale">
+    <title>Password restoration</title>
+</head>
+
+<body>
+    <h1>Podaj email aby odzyskać hasło</h1>
+     <a href="{{url_for('index') }}">Back to main page</a><br>
+     <form action="/restorepass" method="POST">
+        <input name='email'><br>
+    <input type="submit"><br>
+     </form>
+{% if processed_text_restorepass_info %}
+<p id="text">{{ processed_text_restorepass_info }}</p>
+{% endif %}
+</body>
+
+</html>
