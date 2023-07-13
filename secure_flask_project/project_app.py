@@ -37,7 +37,7 @@ db = SQLAlchemy(app)
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String(16))
+    username = db.Column(db.String(24))
     password = db.Column(db.String(254))
     email = db.Column(db.String(254))
     salt = db.Column(db.String(254))
